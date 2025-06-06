@@ -1,0 +1,13 @@
+name: on-schedule-cron-weekly
+on:
+  schedule:
+    - cron: '0 4 * * 6'
+
+jobs:
+  build:
+    uses: ./.github/workflows/action.image-build.yaml
+    secrets: inherit
+    with:
+      dockerfile: Dockerfile
+      image: ${{ vars.IMAGE_REPOSITORY }}
+      target: main

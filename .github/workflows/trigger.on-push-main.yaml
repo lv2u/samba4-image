@@ -1,0 +1,14 @@
+name: on-push-main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/action.image-build.yaml
+    secrets: inherit
+    with:
+      dockerfile: Dockerfile
+      image: ${{ vars.IMAGE_REPOSITORY }}
+      target: main
