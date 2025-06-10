@@ -2,7 +2,7 @@ FROM ubuntu:latest AS main
 
 RUN apt-get -yqq update \
     && apt-get -yqq upgrade \
-    && apt-get -yqq install samba winbind krb5-user ldapscripts libsasl2-modules-gssapi-mit dnsutils tini \
+    && apt-get -yqq install samba winbind krb5-user ldapscripts libsasl2-modules-gssapi-mit dnsutils iproute2 tini \
     && apt-get clean \
     && rm -rf /var/cache/apt/archives /var/lib/apt/lists/* \
     && rm -f /etc/samba/smb.conf
