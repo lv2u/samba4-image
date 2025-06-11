@@ -1,7 +1,15 @@
 #!/bin/bash
 
+PREP_SCRIPT=/usr/local/bin/prep.sh
 SAMBA_CONFIG_FILE=/etc/samba/smb.conf
 KRB5_CONFIG_FILE=/var/lib/samba/private/krb5.conf
+
+#
+# Check if prep script exists. If so, source it to run it.
+#
+if [[ -f "$PREP_SCRIPT" ]]; then
+  source "$PREP_SCRIPT"
+fi
 
 #
 # If both the samba and krb5 config files exist, we can safely assume Samba has been properly configured.
